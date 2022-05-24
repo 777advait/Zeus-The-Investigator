@@ -1,5 +1,4 @@
 # Zeus the Investigator
-A pure python program that checks if a site is online/offline at the moment.
 ![ZeusTheInvestigator-preview](https://user-images.githubusercontent.com/76993204/169963269-6de3106b-6202-430b-9189-f5f770f910f7.gif)
 
 #### **USAGE**
