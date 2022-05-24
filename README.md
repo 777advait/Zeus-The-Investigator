@@ -3,7 +3,7 @@
 
 #### **USAGE**
 ```powershell
-$ zeus -u <first_url> -u <second_url> -c <cooldown(in secs. default=3)>
+$ zeus -u <first_url> -u <second_url>
 ```
 
 # Installation
