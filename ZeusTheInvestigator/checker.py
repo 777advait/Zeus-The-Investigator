@@ -1,13 +1,15 @@
 import urllib3
-from typing import List
+from typing import List, Optional
 from rich.live import Live
 from rich.table import Table
+from rich.console import Console
 import typer
 import time
 import re
 import requests
 
 
+console = Console()
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
@@ -41,13 +43,21 @@ def validate_url(url: str):
     return url
 
 
-def process_url(url: List[str] = typer.Option(..., "-u", "--url", help="URL of the site that needs to be checked."), cooldown: int = typer.Option(3, "-c", "--cooldown", help="Cooldown for the next request.")):
+def process_url(
+    url: List[str] = typer.Option(..., "-u", "--url", help="URL of the site that needs to be checked."),
+    cooldown: int = typer.Option(3, "-c", "--cooldown", help="Cooldown for the next request."),
+    infinite: Optional[bool] = typer.Option(False, "-i", "--infinite", help="Runs an infinite loop until the user aborts it.")
+    ):
     """Zeus the Investigator: Checks if a site is online at the moment."""
-    with Live(check_site(url), refresh_per_second=4) as live:
-        live.console.print("\nInvestigator initiated!(Press [bold blue]CTRL+C[/] to quit)\n")
-        while True:
-            time.sleep(cooldown)
-            live.update(check_site(url))
+    if infinite:
+        with Live(check_site(url), refresh_per_second=4) as live:
+            live.console.print("\nInvestigator initiated!(Press [bold blue]CTRL+C[/] to quit)\n")
+            while True:
+                time.sleep(cooldown)
+                live.update(check_site(url))
+    else:
+        console.print(check_site(url))
+        console.print("\nInvestigation completed :thumbsup:\n")
 
 
 def main():

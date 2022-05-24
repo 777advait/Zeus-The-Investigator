@@ -1,5 +1,5 @@
 # Zeus the Investigator
-![ZeusTheInvestigator-preview](https://user-images.githubusercontent.com/76993204/169963269-6de3106b-6202-430b-9189-f5f770f910f7.gif)
+![ZeusTheInvestigator0.1.7-preview](https://user-images.githubusercontent.com/76993204/170004945-e1ad079f-d1eb-46f5-9da2-51bd452bf635.gif)
 
 #### **USAGE**
 ```powershell
